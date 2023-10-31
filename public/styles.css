@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&display=swap");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+body {
+  background: url("../src/assets/fondo.webp") no-repeat center center fixed;
+  background-size: cover;
+  background-color: #9dbbce;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: #706233;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+main {
+  position: fixed;
+  margin-left: max(10%, 225px);
+  box-shadow: rgba(255, 255, 255, 0.25) 0 0 100px 0;
+  padding: 1rem 2rem;
+  margin-top: 1.5rem;
+  margin-right: 1.5rem;
+  width: 85%;
+  background-color: #e2e5b5;
+}
+
+/*
+main {
+  background-color: $workarea-background-color;
+  box-shadow: rgba(255, 255, 255, 0.25) 0 0 100px 0;
+
+  border-radius: 8px;
+  padding: 1rem 2rem;
+
+}
+*/
+h1 {
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h2 {
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*FLEX*/
+.fx-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.fx-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.fx-align-items-center {
+  align-items: center;
+}
+
+.fx-content-space-between {
+  justify-content: space-between;
+}
+
+.fx-space-between {
+  justify-content: space-between;
+}
+
+.fx-content-center {
+  justify-content: center;
+}
+
+@media screen and (max-width: 768px) {
+  .fx-hide-xs {
+    display: none;
+  }
+  .fx-column-xs {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.fa-solid {
+  color: #706233;
+  background-color: transparent;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
