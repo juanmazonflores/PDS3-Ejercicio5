@@ -1,27 +1,42 @@
 <template>
+      <div id="modal-background" class="modal-background">
+      </div>
+
 
     <div id="modal" class="modal">
 
-        <h2 id="modal-title">Nueva Tarea</h2>
+        <h2 id="modal-title">DETALLES DE POST</h2>
 
         <form id="sale-form" class="form-section fx-content-center fx-row">
 
-          <h4 id="id-field"></h4>
+          <div class="fx-row">
+              <h4>ID: </h4>
+              <h4 id="id-field" class="form-field"></h4>
+          </div>
 
           <div class="fx-row">
-              <label for="title-field">Titulo</label>
-              <label id="title-field" class="form-field"></label>
+              <h4>ID Usuario: </h4>
+              <h4 id="userid-field" class="form-field"></h4>
+          </div>
+
+          <div class="fx-row">
+              <h4>Titulo: </h4>
+              <h4 id="title-field" class="form-field"></h4>
           </div>
           
           <div  class="fx-row">
-              <label for="description-field">Descripcion</label>
-              <label id="title-field" class="form-field"></label>
+              <h4>Descripcion: </h4>
+              <h4 id="description-field" class="form-field"></h4>
              
           </div>
                   
         </form>
-
+        <h2>Presiona fuera de la ventana para salir</h2>
     </div>
+
+
+    
+
 </template>
 
 <script>
@@ -121,6 +136,12 @@
   filter: invert(0.1);
 }
 .form-section label {
+  font-weight: bold;
+  font-size: 1.3;
+  margin-right: 1rem;
+  width: 25%;
+}
+.form-section h4 {
   font-weight: bold;
   font-size: 1.3;
   margin-right: 1rem;

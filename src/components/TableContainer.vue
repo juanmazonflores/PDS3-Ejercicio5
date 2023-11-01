@@ -15,7 +15,6 @@
         </tbody>
         </table>
     </div>
-
     <div id="message" class="message">
         <p>No se ha realizado una consulta de ventas.</p>
     </div>

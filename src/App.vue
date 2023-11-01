@@ -8,9 +8,11 @@
 </template>
 
 <script>
+
 import SideBar from './components/SideBar.vue'
 import TableContainer from './components/TableContainer.vue'
 import ModalVue from './components/ModalVue.vue'
+
 
 export default {
   name: 'App',
@@ -18,12 +20,12 @@ export default {
     SideBar,
     TableContainer,
     ModalVue
-  }
+  },
 }
+
 
 //#region 7. FETCH
 const apiURL = 'https://jsonplaceholder.typicode.com/posts';
-
 
 function fetchAPI(url, method = 'GET', data = null) {
 
@@ -56,12 +58,6 @@ function fetchAPI(url, method = 'GET', data = null) {
     });
 
 }
-//#endregion
-
-//#region 6. FUNCIONES UTILES
-
-
-
 //#endregion
 
 //#region 1. MODELO DE DATOS (MODELS)
@@ -137,7 +133,6 @@ function displayTasksTable(tasks) {
       `;
   
       tablaBody.appendChild(row);
-  
     });
   
     initDetailsTaskButtonHandler();
@@ -166,27 +161,41 @@ function hideMessage() {
   
     message.style.display = 'none';
 }
+//#endregion
 
 //#region 4. BOTONES PARA AGREGAR, ACTUALIZAR Y ELIMINAR TAREAS (VIEW)
 
+function initTaskButtonsHandler(){
+   
+
+    document.getElementById('modal-background').addEventListener('click', () => {
+      closeTaskModal();
+    });
+
+  
+
+}
 
 function openTaskModal(data) {
+
+  console.log(data.id);
   document.getElementById('sale-form').reset();
   document.getElementById('modal-background').style.display = 'block';
-  document.getElementById('modal').style.display = 'block';
-    document.getElementById('id-field').value=data.id;
-    document.getElementById('modal-title').textContent='Actualizar Tarea';
-    document.getElementById('title-field').value=data.title;
-    document.getElementById('description-field').value=data.description;
+  document.getElementById('modal').style.display = 'initial';
+  document.getElementById('id-field').textContent=data.id;
+  document.getElementById('userid-field').textContent=data.userId;
+  document.getElementById('title-field').textContent=data.title;
+  document.getElementById('description-field').textContent=data.body
+
+  initTaskButtonsHandler()
 
 }
 
 function closeTaskModal() {
-    document.getElementById('modal-title').textContent='Nueva Tarea';
     document.getElementById('modal-background').style.display = 'none';
     document.getElementById('modal').style.display = 'none';
-    document.getElementById('botonModal').textContent='Guardar Tarea';
 }
+
 
 
 
@@ -209,7 +218,7 @@ function initDetailsTaskButtonHandler() {
 
 //#region 5. CONSUMO DE DATOS DESDE API
 
-function getTasksData(tag,completed) {
+export function getTasksData(tag,completed) {
 
   const url = buildGetTasksDataUrl(tag,completed);
 
@@ -225,6 +234,7 @@ function getTask(id) {
   fetchAPI(`${apiURL}/${id}`, 'GET')
     .then(data => {
       openTaskModal(data)
+      console.log(data);
     });
   
 }
@@ -237,18 +247,19 @@ function buildGetTasksDataUrl() {
 }
 
 
-
 //#endregion
 
 //#region 6. INICIAR CONTROLADORES
 
+
 getTasksData();
-initTaskButtonsHandler();
+
+//#endregion
 
 
-//#ENDregion
 
 </script>
+
 
 <style>
   @import url('../public/styles.css');
